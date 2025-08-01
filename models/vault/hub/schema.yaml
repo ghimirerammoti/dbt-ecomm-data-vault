@@ -1,0 +1,139 @@
+version: 2
+
+models:
+  - name: hub_customers
+    description: "Hub table for customers data"
+    columns:
+      - name: customer_id
+        description: "Unique identifier for each customer"
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_hk
+        description: "Hash key for customer, generated from customer_id"
+        data_tests:
+          - not_null
+      - name: load_dtm
+        description: "Load timestamp for the record"
+        data_tests:
+          - not_null
+      - name: source
+        description: "Source of the data"
+  - name: hub_sellers
+    description: "Hub table for sellers data"
+    columns:
+      - name: seller_id
+        description: "Unique identifier for each seller"
+        data_tests:
+          - not_null
+          - unique
+      - name: seller_hk
+        description: "Hash key for seller, generated from seller_id"
+        data_tests:
+          - not_null
+      - name: load_dtm
+        description: "Load timestamp for the record"
+        data_tests:
+          - not_null
+      - name: source
+        description: "Source of the data"
+  - name: hub_orders
+    description: "Hub table for orders data"
+    columns:
+      - name: order_id
+        description: "Unique identifier for each order"
+        data_tests:
+          - not_null
+          - unique
+      - name: order_hk
+        description: "Hash key for order, generated from order_id"
+        data_tests:
+          - not_null
+      - name: load_dtm
+        description: "Load timestamp for the record"
+        data_tests:
+          - not_null
+      - name: source
+        description: "Source of the data"
+  - name: hub_order_payments
+    description: "Hub table for order payments data"
+    columns:
+      - name: order_payment_hk
+        description: "Hash key for order payment, generated from order_id and payment_sequential"
+        data_tests:
+          - not_null
+      - name: order_id
+        description: "Unique identifier for each order"
+        data_tests:
+          - not_null
+      - name: payment_sequential
+        description: "Sequential number of the payment for the order"
+        data_tests:
+          - not_null
+      - name: load_dtm
+        description: "Load timestamp for the record"
+        data_tests:
+          - not_null
+      - name: source
+        description: "Source of the data"
+  - name: hub_order_items
+    description: "Hub table for order items data"
+    columns:
+      - name: order_item_hk
+        description: "Hash key for order item, generated from order_id and order_item_id"
+        data_tests:
+          - not_null
+      - name: order_id
+        description: "Unique identifier for each order"
+        data_tests:
+          - not_null
+      - name: order_item_id
+        description: "Unique identifier for each item in the order"
+        data_tests:
+          - not_null
+      - name: load_dtm
+        description: "Load timestamp for the record"
+        data_tests:
+          - not_null
+      - name: source
+        description: "Source of the data"
+  - name: hub_order_reviews
+    description: "Hub table for order reviews data"
+    columns:
+      - name: order_review_hk
+        description: "Hash key for order review, generated from order_id and review_id"
+        data_tests:
+          - not_null
+      - name: order_id
+        description: "Unique identifier for each order"
+        data_tests:
+          - not_null
+      - name: review_id
+        description: "Unique identifier for each review"
+        data_tests:
+          - not_null
+      - name: load_dtm
+        description: "Load timestamp for the record"
+        data_tests:
+          - not_null
+      - name: source
+        description: "Source of the data"
+  - name: hub_products
+    description: "Hub table for products data"
+    columns:
+      - name: product_id
+        description: "Unique identifier for each product"
+        data_tests:
+          - not_null
+          - unique
+      - name: product_hk
+        description: "Hash key for product, generated from product_id"
+        data_tests:
+          - not_null
+      - name: load_dtm
+        description: "Load timestamp for the record"
+        data_tests:
+          - not_null
+      - name: source
+        description: "Source of the data"
+  

@@ -16,7 +16,7 @@ The models are deployed and orchestrated using `dbt Cloud` and tested in `Snowfl
 ---
 
 ## 🧱 Architecture
-
+![Architecture Diagram](docs/Ecomm_Datavault.png)
 - **Staging Layer**: Standardized, cleaned data from each source
 - **Hubs**: Business keys (e.g., customer, order, product)
 - **Links**: Relationships (e.g., order ↔ shipment)
@@ -44,3 +44,4 @@ The models are deployed and orchestrated using `dbt Cloud` and tested in `Snowfl
 ```bash
 git clone https://github.com/motiramgh/DBT-ECOMM-DATA-VAULT.git
 cd DBT-ECOMM-DATA-VAULT
+

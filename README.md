@@ -40,6 +40,7 @@ The models are deployed and orchestrated using `ApacheAirflow- Managed in AWS` a
 ## 🚀 How to Run
 
 ### 1. Clone the repo
+````bash
 git clone https://github.com/motiramgh/DBT-ECOMM-DATA-VAULT.git
 cd DBT-ECOMM-DATA-VAULT
 
@@ -71,9 +72,9 @@ dbt run --select stage
 
 ### 6. Run Vault Models
 dbt run --select vault
-    ### Or run a specific component:
-    dbt run --select +hub_order
-    
+### Or run a specific component:
+dbt run --select +hub_order
+
 ### 7. Run Data Marts (Optional)
 ##If you've defined any marts or reporting layers:
 dbt run --select marts

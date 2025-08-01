@@ -38,9 +38,9 @@ The models are deployed and orchestrated using `ApacheAirflow- Managed in AWS` a
 ---
 
 ## 🚀 How to Run
-
-### 1. Clone the repo
 ````bash
+### 1. Clone the repo
+
 git clone https://github.com/motiramgh/DBT-ECOMM-DATA-VAULT.git
 cd DBT-ECOMM-DATA-VAULT
 

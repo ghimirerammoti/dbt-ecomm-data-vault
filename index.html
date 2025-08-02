@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>My Docs</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/fontawesome.min.css" rel="stylesheet">
+        <link href="css/brands.min.css" rel="stylesheet">
+        <link href="css/solid.min.css" rel="stylesheet">
+        <link href="css/v4-font-face.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">My Docs</a>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#dbt-data-vault-20-ecommerce-analytics-project" class="nav-link">🧱 dbt Data Vault 2.0 — eCommerce Analytics Project</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">🧭 Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#architecture" class="nav-link">🧱 Architecture</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#tech-stack" class="nav-link">🧰 Tech Stack</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#how-to-run" class="nav-link">🚀 How to Run</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#if-youve-defined-any-marts-or-reporting-layers" class="nav-link">If you've defined any marts or reporting layers:</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="dbt-data-vault-20-ecommerce-analytics-project">🧱 dbt Data Vault 2.0 — eCommerce Analytics Project</h1>
+<h2 id="overview">🧭 Overview</h2>
+<p>This project demonstrates how to implement a <strong>Data Vault 2.0 architecture</strong> using <code>dbt</code> to model data from multiple sources in the eCommerce and logistics domain.</p>
+<p>It integrates data from:
+- 🛒 <strong>Shopify</strong> (sales, products, customers)
+- 🚚 <strong>3PL Logistics (SALSA)</strong> (Fulfillments, tracking, Delivery)
+- 🏢 <strong>Centic Software</strong> (Planning, Inventory)
+- 💰 <strong>Finance/Accounting systems</strong> (Oracle Fusion ERP)</p>
+<p>The models are deployed and orchestrated using <code>ApacheAirflow- Managed in AWS</code> and tested in <code>Snowflake</code>.</p>
+<hr />
+<h2 id="architecture">🧱 Architecture</h2>
+<p><img alt="Architecture Diagram" src="docs/Ecomm_Datavault.png" />
+- <strong>Staging Layer</strong>: Standardized, cleaned data from each source
+- <strong>Hubs</strong>: Business keys (e.g., customer, order, product)
+- <strong>Links</strong>: Relationships (e.g., order ↔ products)
+- <strong>Satellites</strong>: Contextual details (e.g., order status, address, payment)
+- <strong>Marts</strong>: Flattened, analytics-ready views, materialized views</p>
+<hr />
+<h2 id="tech-stack">🧰 Tech Stack</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Tool/Service</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modeling</td>
+<td><code>dbt</code> (Core + Cloud)</td>
+</tr>
+<tr>
+<td>Warehouse</td>
+<td><code>Snowflake</code></td>
+</tr>
+<tr>
+<td>Orchestration</td>
+<td><code>ApacheAirflow - AWS Managed</code></td>
+</tr>
+<tr>
+<td>Ingestion</td>
+<td><code>Python Custom</code></td>
+</tr>
+<tr>
+<td>Versioning</td>
+<td><code>GitHub</code></td>
+</tr>
+<tr>
+<td>Testing</td>
+<td><code>dbt tests</code>, <code>snapshots</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="how-to-run">🚀 How to Run</h2>
+<p>````bash</p>
+<h3 id="1-clone-the-repo">1. Clone the repo</h3>
+<p>git clone https://github.com/motiramgh/DBT-ECOMM-DATA-VAULT.git
+cd DBT-ECOMM-DATA-VAULT</p>
+<h3 id="2-update-dbtprofilesyml">2. Update ~/.dbt/profiles.yml:</h3>
+<p>ecomm_data_vault:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: <your_account>
+      user: <your_username>
+      password: <your_password>
+      role: <your_role>
+      database: <your_database>
+      warehouse: <your_warehouse>
+      schema: <your_schema>
+      threads: 4
+      client_session_keep_alive: false</p>
+<h3 id="3-install-dbt-and-dependencies-project-packages">3. Install dbt and Dependencies &amp; Project Packages</h3>
+<p>pip install dbt-snowflake
+dbt deps</p>
+<h3 id="4-to-populate-static-reference-data">4. To populate static reference data:</h3>
+<p>dbt seed</p>
+<h3 id="5-run-staging-models">5. Run Staging Models</h3>
+<p>dbt run --select stage</p>
+<h3 id="6-run-vault-models">6. Run Vault Models</h3>
+<p>dbt run --select vault</p>
+<h3 id="or-run-a-specific-component">Or run a specific component:</h3>
+<p>dbt run --select +hub_order</p>
+<h3 id="7-run-data-marts-optional">7. Run Data Marts (Optional)</h3>
+<h2 id="if-youve-defined-any-marts-or-reporting-layers">If you've defined any marts or reporting layers:</h2>
+<p>dbt run --select marts</p>
+<h3 id="8-run-all-models-full-pipeline">8. Run All Models (Full Pipeline)</h3>
+<p>dbt run</p>
+<h3 id="9-run-tests">9. Run Tests</h3>
+<p>dbt test</p>
+<h3 id="10-generate-and-view-documentation">10. Generate and View Documentation</h3>
+<p>dbt docs generate
+dbt docs serve</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js"></script>
+        <script src="search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2025-08-02 14:02:14.777823+00:00
+-->

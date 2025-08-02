@@ -15,7 +15,7 @@ The models are deployed and orchestrated using `ApacheAirflow- Managed in AWS` a
 ---
 
 ## 🧱 Architecture
-![Architecture Diagram](docs/Ecomm_Datavault.png)
+![Architecture Diagram](Ecomm_Datavault.png)
 - **Staging Layer**: Standardized, cleaned data from each source
 - **Hubs**: Business keys (e.g., customer, order, product)
 - **Links**: Relationships (e.g., order ↔ products)
